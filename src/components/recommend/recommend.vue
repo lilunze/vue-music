@@ -13,26 +13,13 @@
 	</div>
 </template>
 <script>
-	import axios from 'axios';
-	import qs from 'qs';
+	
 	export default {
-		data:function(){
-			return {
-				list:[]
+		props:{
+			list:{
+				type:Array,
+				default:null
 			}
-		},
-		mounted:function(){
-			var _this=this;
-			axios
-			.post('https://yumsunsportwear.com/self/echo/index.php',qs.stringify({'url':"http://www.app-echo.com/api/recommend/sound-day?limit=6&page=1"}))
-			.then(function(res){
-				_this.list=res.data.list;
-				console.log(res);
-			})
-			.catch(function(err){
-				console.log(err)
-			})
-			
 		}
 	}
 </script>

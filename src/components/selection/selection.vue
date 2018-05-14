@@ -21,23 +21,11 @@
 	import axios from 'axios';
 	import qs from 'qs';
 	export default {
-		data:function(){
-			return {
-				list:[]
+		props:{
+			list:{
+				type:Array,
+				default:null
 			}
-		},
-		mounted:function()
-		{
-			var _this=this;
-			axios
-			.post('https://yumsunsportwear.com/self/echo/index.php',qs.stringify({'url':"http://www.app-echo.com/api/other/index"}))
-			.then(function(res){
-				_this.list=res.data.hot_recommend;
-				console.log(_this.list)
-			})
-			.catch(function(err){
-				console.log(err)
-			})
 		}
 	}
 </script>
