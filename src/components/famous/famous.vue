@@ -33,7 +33,7 @@
 		mounted:function(){
 			var _this=this;
 			axios
-			.post('http://lilunze.me/api/echo/index.php',qs.stringify({'url':"http://www.app-echo.com/api/famous/famous-user?limit=9"}))
+			.post('https://yumsunsportwear.com/self/echo/index.php',qs.stringify({'url':"http://www.app-echo.com/api/famous/famous-user?limit=9"}))
 			.then(function(res){
 				_this.list=res.data.lists;
 				console.log(_this.list);

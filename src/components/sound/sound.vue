@@ -51,7 +51,7 @@ export default {
       var id=this.$route.params.id;
       console.log(id)
       localStorage.setItem('sound_id',id);
-      axios.post('http://lilunze.me/api/echo/index.php',qs.stringify({'url':"http://www.app-echo.com/api/sound/info?id="+id+"&comment=1"}))
+      axios.post('https://yumsunsportwear.com/self/echo/index.php',qs.stringify({'url':"http://www.app-echo.com/api/sound/info?id="+id+"&comment=1"}))
       .then(function(res){
           _this.soundList = res.data.info;
           console.log(res)

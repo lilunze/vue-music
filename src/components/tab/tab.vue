@@ -12,7 +12,7 @@
 				[
 					{
 						title:'推荐',
-						src:'/'
+						src:'/recommend'
 					},
 					{
 						title:'热门',
