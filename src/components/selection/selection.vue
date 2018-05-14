@@ -50,7 +50,7 @@
 		vertical-align: top;
 		width: 2rem;
 		height: 2rem;
-		/* background: url('/src/assets/icon/icon-title.png'); */
+		background-image: url("../../assets/icon/icon-title.png");
 		background-size: 100% 100%;
 		margin: 0 1rem;
 	}
@@ -98,7 +98,7 @@
 		display: inline-block;
 		width: 1rem;
 		height: 1rem;
-		background: url(/src/images/icon/icon-cd.png);
+		background: url(../../assets/icon/icon-cd.png);
 		background-size: 100% 100%;
 	}
 	.icon-like
@@ -106,7 +106,7 @@
 		display: inline-block;
 		width: 0.8rem;
 		height: 0.8rem;
-		background: url(/src/images/icon/icon-like.png);
+		background: url(../../assets/icon/icon-like.png);
 		background-size: 100% 100%;
 		margin: 0.2rem 0.1rem 0 0;
 	}

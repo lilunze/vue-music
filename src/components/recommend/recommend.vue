@@ -45,7 +45,7 @@
 		vertical-align: top;
 		width: 2rem;
 		height: 2rem;
-		/* background: url('/src/images/icon/icon-title.png'); */
+		background: url('../../assets/icon/icon-title.png');
 		background-size: 100% 100%;
 		margin: 0 1rem;
 	}
@@ -93,7 +93,7 @@
 		display: inline-block;
 		width: 0.6rem;
 		height: 0.6rem;
-		background: url(/src/images/icon/icon-cd.png);
+		background: url(../../assets/icon/icon-cd.png);
 		background-size: 100% 100%;
 		margin-right: 0.1rem;
 	}
