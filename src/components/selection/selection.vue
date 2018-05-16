@@ -4,7 +4,7 @@
 		<ul>
 			<li v-for="(item,index) in list" v-if="index<6">
 				<a :href="'/sound/'+item.id">
-					<p><img :src="item.pic_200"></p>
+					<p><img v-lazy="item.pic_200"></p>
 					<p class="name">{{item.name}}</p>
 					<p class="channel">{{item.channel.name}}</p>
 					<p class="like">

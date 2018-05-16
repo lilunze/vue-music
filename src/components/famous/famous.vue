@@ -1,29 +1,39 @@
 <template>
-	<div class="list">
-		<div class="classify">
-			<p>推荐</p>
-			<p>群星</p>
-			<p>新入驻</p>
-			<p>分类</p>
-		</div>
-		<ul>
-			<li v-for="item in list">
-				<a :href="item.id">
-					<p><img :src="item.avatar_150"></p>
-					<p class="name">{{item.name}}</p>
-					<p class="channel">{{item.followed_count}} 人关注</p>
-				</a>
-			</li>
-		</ul>
+	<div class="bs-wrap">
+		<bscroll class="bs" :data="list">	
+			<div class="list">
+				<div class="classify">
+					<p>推荐</p>
+					<p>群星</p>
+					<p>新入驻</p>
+					<p>分类</p>
+				</div>
+				<ul>
+					<li v-for="item in list">
+						<a :href="item.id">
+							<p><img v-lazy="item.avatar_150"></p>
+							<p class="name">{{item.name}}</p>
+							<p class="channel">{{item.followed_count}} 人关注</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div v-show="!list.length" class="loading-container">
+				<loading></loading>
+			</div>
+		</bscroll>
 	</div>
 </template>
 <script>
 	import axios from 'axios';
 	import qs from 'qs';
+	import bscroll from '@/base/scroll/scroll';
+	import loading from '@/base/loading/loading'
 	export default {
 		components:
 		{
-			
+			bscroll,
+			loading
 		},
 		data:function(){
 			return {
@@ -46,6 +56,26 @@
 	}
 </script>
 <style scoped>
+	.loading-container
+	{
+		position: absolute;
+        width: 100%;
+        top: 60%;
+        transform: translateY(-50%);
+	}
+	.bs-wrap
+	{
+		position: fixed;
+    	width: 100%;
+    	top: 90px;
+    	bottom: 0;
+    	background: #fff;
+	}
+	.bs
+	{
+		height: 100%;
+      	overflow: hidden;
+	}
 	.list
 	{
 		text-align: center;

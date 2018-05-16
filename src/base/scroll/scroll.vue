@@ -8,23 +8,27 @@
 
 	export default {
 		props:{
+			probeType: {
+		        type: Number,
+		        default: 1
+		      },
 			data:{
 				type:Array,
 				default:null
 			}
 		},
-		mounted:function(){
+		mounted(){
 			setTimeout(() => {
 		        this._initScroll()
-		      }, 20)
+		      }, 20) 
 		},
 		methods:{
 			_initScroll:function(){
-				if(!this.$refs.wrapper)
+				if(! this.$refs.wrapper)
 				{
 					return
 				}
-				this.scroll=new Bscroll(this.$refs.wrapper,{})
+				this.scroll=new Bscroll(this.$refs.wrapper,{ probeType: this.probeType})
 			},
 			disable:function(){
 		        this.scroll && this.scroll.disable()
@@ -32,7 +36,7 @@
 	      	enable:function(){
 		        this.scroll && this.scroll.enable()
 		      },
-	      	refresh:function(){
+	      	refresh(){
 		        this.scroll && this.scroll.refresh()
 	      	},
 	      	scrollTo:function(){
@@ -53,4 +57,5 @@
 </script>
 <style>
 	
+
 </style>

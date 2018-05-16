@@ -4,7 +4,7 @@
 		<ul>
 			<li v-for="item in list">
 				<a :href="'/sound/'+item.obj_id">
-					<p><img :src="item.sound.pic_200"></p>
+					<p><img v-lazy="item.sound.pic_200"></p>
 					<p class="name">{{item.sound.name}}</p>
 					<p class="channel"><i class="cd"></i>{{item.sound.channel.name}}</p>
 				</a>

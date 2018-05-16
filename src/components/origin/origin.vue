@@ -1,24 +1,32 @@
 <template>
-	<div class="daily-rank">
-		<ul>
-			<li v-for="item in list">
-				<a :href="'/sound/'+item.id" class="cover"><img :src="item.pic_200"></a>
-				<span class="info">
-					<p class="sound-name">{{item.name}}</p>
-					<p class="user"><img :src="item.user.avatar"><span>{{item.user.name}}</span></p>
-					<p class="hot-info"><i class="icon-like"></i><span class="text-like">{{item.like_count}}</span><i class="icon-download"></i><span class="text-download">{{item.download_count}}</span></p>
-				</span>
-			</li>
-		</ul>
+	<div class="bs-wrap">
+		<bscroll class="bs" :data="list">
+			<ul class="daily-rank">
+				<li v-for="item in list">
+					<a :href="'/sound/'+item.id" class="cover"><img v-lazy="item.pic_200"></a>
+					<span class="info">
+						<p class="sound-name">{{item.name}}</p>
+						<p class="user"><img :src="item.user.avatar"><span>{{item.user.name}}</span></p>
+						<p class="hot-info"><i class="icon-like"></i><span class="text-like">{{item.like_count}}</span><i class="icon-download"></i><span class="text-download">{{item.download_count}}</span></p>
+					</span>
+				</li>
+			</ul>
+			<div v-show="!list.length" class="loading-container">
+				<loading></loading>
+			</div>
+		</bscroll>
 	</div>
 </template>
 <script>
 	import axios from 'axios';
 	import qs from 'qs';
+	import bscroll from '@/base/scroll/scroll';
+	import loading from '@/base/loading/loading'
 	export default {
 		components:
 		{
-			
+			bscroll,
+			loading
 		},
 		data:function(){
 			return {
@@ -41,10 +49,31 @@
 	}
 </script>
 <style scoped>
+	.loading-container
+	{
+		position: absolute;
+        width: 100%;
+        top: 40%;
+        transform: translateY(-50%);
+	}
+	.bs-wrap
+	{
+		position: fixed;
+    	width: 100%;
+    	top: 90px;
+    	bottom: 0;
+    	background: #fff;
+	}
+	.bs
+	{
+		height: 100%;
+      	overflow: hidden;
+	}
 	.daily-rank
 	{
 		background: #fff;
 		padding: 0.4rem 1rem;
+		box-sizing: border-box;
 	}
 	h1
 	{
